@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>The Basics</title>
+    <link rel="stylesheet" href="css/calc.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/flscrds.css">
+    <link rel="stylesheet" href="css/timer.css">
+  </head>
+  <body>
+    <div class="footer">
+
+    </div>
+    <div class="timer">
+      <div class="timer-set">
+        <span id="min-1">0</span>
+        <span id="min-2">1</span>
+        <span>:</span>
+        <span id="sec-1">0</span>
+        <span id="sec-2">0</span>
+      </div>
+      <div class="timer-start">
+        <span onclick="countdown()">Start</span>
+      </div>
+    </div>
+    <div class="calc">
+      <div id="calc__output">
+
+      </div>
+      <button id="C" type="button" name="button" class = "calc__button">C</button>
+      <button id="AC" type="button" name="button" class = "calc__button">AC</button>
+      <button id="7" type="button" name="button" class = "calc__button">7</button>
+      <button id="8" type="button" name="button" class = "calc__button">8</button>
+      <button id="9" type="button" name="button" class = "calc__button">9</button>
+      <button id="+" type="button" name="button" class = "calc__button">+</button>
+      <button id="-" type="button" name="button" class = "calc__button">-</button>
+      <button id="4" type="button" name="button" class = "calc__button">4</button>
+      <button id="5" type="button" name="button" class = "calc__button">5</button>
+      <button id="6" type="button" name="button" class = "calc__button">6</button>
+      <button id="*" type="button" name="button" class = "calc__button">*</button>
+      <button id=":" type="button" name="button" class = "calc__button">:</button>
+      <button id="1" type="button" name="button" class = "calc__button">1</button>
+      <button id="2" type="button" name="button" class = "calc__button">2</button>
+      <button id="3" type="button" name="button" class = "calc__button">3</button>
+      <button id="0" type="button" name="button" class = "calc__button">0</button>
+      <button id="=" type="button" name="button" class = "calc__button">=</button>
+
+    </div>
+    <div class="flscrds">
+      <div class="flscrds__create">
+        <textarea name="name" rows="8" cols="80"></textarea>
+      </div>
+    </div>
+    <script src="js/calc.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/flscrds.js"></script>
+  </body>
+</html>
