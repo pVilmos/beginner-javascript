@@ -9,81 +9,96 @@ min_2.addEventListener("click", change_min_2);
 sec_1.addEventListener("click", change_sec_1);
 sec_2.addEventListener("click", change_sec_2);
 
+var start = setInterval(countdown, 1000);
+
 
 function change_min_1(){
-  if (document.getElementById("min-1").textContent < 9) {
-    document.getElementById("min-1").innerHTML = parseInt(document.getElementById("min-1").textContent) + 1;
+  if (min_1.textContent < 9) {
+    min_1.innerHTML = parseInt(min_1.textContent) + 1;
   }
   else{
-    document.getElementById("min-1").innerHTML = "0";
+    min_1.innerHTML = "0";
   }
 }
 
 function change_min_2(){
-  if (document.getElementById("min-2").textContent < 9) {
-    document.getElementById("min-2").innerHTML = parseInt(document.getElementById("min-2").textContent) + 1;
+  if (min_2.textContent < 9) {
+    min_2.innerHTML = parseInt(min_2.textContent) + 1;
   }
   else{
-    document.getElementById("min-2").innerHTML = "0";
+    min_2.innerHTML = "0";
   }
 }
 
 function change_sec_1(){
-  if (document.getElementById("sec-1").textContent < 6) {
-    document.getElementById("sec-1").innerHTML = parseInt(document.getElementById("sec-1").textContent) + 1;
+  if (sec_1.textContent < 6) {
+    sec_1.innerHTML = parseInt(sec_1.textContent) + 1;
   }
   else{
-    document.getElementById("sec-1").innerHTML = "0";
+    sec_1.innerHTML = "0";
   }
 }
 
 function change_sec_2(){
-  if (document.getElementById("sec-2").textContent < 9) {
-    document.getElementById("sec-2").innerHTML = parseInt(document.getElementById("sec-2").textContent) + 1;
+  if (sec_2.textContent < 9) {
+    sec_2.innerHTML = parseInt(sec_2.textContent) + 1;
   }
   else{
-    document.getElementById("sec-2").innerHTML = "0";
+    sec_2.innerHTML = "0";
   }
 }
 function countd_min_1(){
-  if (document.getElementById("min-1").textContent > 0) {
-    document.getElementById("min-1").innerHTML = parseInt(document.getElementById("min-1").textContent) - 1;
+  if (min_1.textContent > 0) {
+    min_1.innerHTML = parseInt(min_1.textContent) - 1;
   }
   else{
-    document.getElementById("min-1").innerHTML = "9";
+    min_1.innerHTML = "9";
   }
 }
 function countd_min_2(){
-  if (document.getElementById("min-2").textContent > 0) {
-    document.getElementById("min-2").innerHTML = parseInt(document.getElementById("min-2").textContent) - 1;
+  if (min_2.textContent > 0) {
+    min_2.innerHTML = parseInt(min_2.textContent) - 1;
   }
   else{
-    document.getElementById("min-2").innerHTML = "9";
+    min_2.innerHTML = "9";
   }
 }
 
 function countd_sec_1(){
-  if (document.getElementById("sec-1").textContent > 0) {
-    document.getElementById("sec-1").innerHTML = parseInt(document.getElementById("sec-1").textContent) - 1;
+  if (sec_1.textContent > 0) {
+    sec_1.innerHTML = parseInt(sec_1.textContent) - 1;
   }
   else{
-    document.getElementById("sec-1").innerHTML = "6";
+    sec_1.innerHTML = "6";
   }
 }
 
 function countd_sec_2(){
-  if (document.getElementById("sec-2").textContent > 0) {
-    document.getElementById("sec-2").innerHTML = parseInt(document.getElementById("sec-2").textContent) - 1;
+  if (sec_2.textContent > 0) {
+    sec_2.innerHTML = parseInt(sec_2.textContent) - 1;
   }
   else{
-    document.getElementById("sec-2").innerHTML = "9";
+    sec_2.innerHTML = "9";
   }
 }
-function coundown(){
-  let min = parseInt(min_1.textContent.toString() + min_2.textContent.toString());
-  let sec = parseInt(sec_1.textContent.toString() + sec_2.textContent.toString());
-  min_1.removeEventListener()
-  let start = setInterval(function(){
-
-  }, 1000)
+function countdown() {
+  let i = 0
+  if (min_1.textContent == "0" && min_2.textContent == "0" && sec_1.textContent == "0" && sec_2.textContent == "0") {
+    clearInterval(start);
+    document.getElementById("start").innerHTML = "Reset";
+  } else if (sec_2.textContent == "0" && sec_1.textContent != "0") {
+    countd_sec_2;
+    countd_sec_1;
+  } else if (sec_2.textContent == "0" && sec_1.textContent == "0" && min_2.textContent != "0") {
+    countd_sec_1;
+    countd_sec_2;
+    countd_min_2;
+  } else {
+    countd_sec_1;
+    countd_sec_2;
+    countd_min_2;
+    countd_min_1;
+  }
+  i++;
+  console.log(i);
 }
