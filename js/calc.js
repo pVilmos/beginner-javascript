@@ -1,4 +1,5 @@
 var inputs = [];
+var out = document.getElementById("calc__output");
 for (var i = 0; i < 10; i++) {
   let a = i;
   document.getElementById(a.toString()).addEventListener("click", function(){button_clicked(a.toString());});
@@ -6,7 +7,7 @@ for (var i = 0; i < 10; i++) {
 document.getElementById("-").addEventListener("click", function(){button_clicked("-");});
 document.getElementById("+").addEventListener("click", function(){button_clicked("+");});
 document.getElementById("*").addEventListener("click", function(){button_clicked("*");});
-document.getElementById(":").addEventListener("click", function(){button_clicked(":");});
+document.getElementById("/").addEventListener("click", function(){button_clicked("/");});
 
 document.getElementById("C").addEventListener("click",delete_last);
 document.getElementById("AC").addEventListener("click", delete_all);
@@ -15,9 +16,11 @@ document.getElementById("=").addEventListener("click", evaluate);
 
 
 function button_clicked(input){
-  var content = document.getElementById(input).textContent;
-  inputs.push(content);
-  document.getElementById("calc__output").innerHTML = document.getElementById("calc__output").innerHTML + content;
+  inputs.push(input.toString());
+  out.innerHTML = "";
+  for (var i = 0; i < inputs.length; i++) {
+    out.innerHTML = out.innerHTML + inputs[i];
+  }
 
 }
 
@@ -31,14 +34,14 @@ function delete_last(){
 }
 
 function delete_all(){
-  document.getElementById("calc__output").innerHTML = "";
-  for (var i = 0; i < inputs.length; i++) {
+  out.innerHTML = "";
+  while (inputs.length > 0) {
     inputs.pop();
   }
 }
 function evaluate(){
   let result = inputs.join("");
-  for (var i = 0; i < inputs.length; i++) {
+  while (inputs.length > 0) {
     inputs.pop();
   }
   let res = eval(result);

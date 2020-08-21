@@ -9,7 +9,9 @@ min_2.addEventListener("click", change_min_2);
 sec_1.addEventListener("click", change_sec_1);
 sec_2.addEventListener("click", change_sec_2);
 
-var start = setInterval(countdown, 1000);
+document.getElementById("start").addEventListener("click", function(){
+  var start = setInterval(countdown, 1000);
+})
 
 
 function change_min_1(){
@@ -48,7 +50,7 @@ function change_sec_2(){
   }
 }
 function countd_min_1(){
-  if (min_1.textContent > 0) {
+  if (parseInt(min_1.textContent) > 0) {
     min_1.innerHTML = parseInt(min_1.textContent) - 1;
   }
   else{
@@ -56,7 +58,7 @@ function countd_min_1(){
   }
 }
 function countd_min_2(){
-  if (min_2.textContent > 0) {
+  if (parseInt(min_2.textContent) > 0) {
     min_2.innerHTML = parseInt(min_2.textContent) - 1;
   }
   else{
@@ -65,16 +67,16 @@ function countd_min_2(){
 }
 
 function countd_sec_1(){
-  if (sec_1.textContent > 0) {
+  if (parseInt(sec_1.textContent) > 0) {
     sec_1.innerHTML = parseInt(sec_1.textContent) - 1;
   }
   else{
-    sec_1.innerHTML = "6";
+    sec_1.innerHTML = "5";
   }
 }
 
 function countd_sec_2(){
-  if (sec_2.textContent > 0) {
+  if (parseInt(sec_2.textContent) > 0) {
     sec_2.innerHTML = parseInt(sec_2.textContent) - 1;
   }
   else{
@@ -82,23 +84,24 @@ function countd_sec_2(){
   }
 }
 function countdown() {
-  let i = 0
   if (min_1.textContent == "0" && min_2.textContent == "0" && sec_1.textContent == "0" && sec_2.textContent == "0") {
     clearInterval(start);
     document.getElementById("start").innerHTML = "Reset";
+    document.getElementById("music").play();
   } else if (sec_2.textContent == "0" && sec_1.textContent != "0") {
-    countd_sec_2;
-    countd_sec_1;
+    countd_sec_2();
+    countd_sec_1();
   } else if (sec_2.textContent == "0" && sec_1.textContent == "0" && min_2.textContent != "0") {
-    countd_sec_1;
-    countd_sec_2;
-    countd_min_2;
-  } else {
-    countd_sec_1;
-    countd_sec_2;
-    countd_min_2;
-    countd_min_1;
+    countd_sec_1();
+    countd_sec_2();
+    countd_min_2();
+  } else if (sec_2.textContent == "0" && sec_1.textContent == "0" && min_2.textContent == "0" && min_1.textContent != "0") {
+    countd_sec_1();
+    countd_sec_2();
+    countd_min_2();
+    countd_min_1();
   }
-  i++;
-  console.log(i);
+  else {
+    countd_sec_2();
+  }
 }
