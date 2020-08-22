@@ -84,10 +84,24 @@ function countd_sec_2(){
   }
 }
 function countdown() {
+  var startb = document.getElementById("start");
+  startb.removeEventListener("click", function(){
+    var start = setInterval(countdown, 1000);
+  })
+  startb.innerHTML = "Reset";
+  startb.addEventListener("click", function(){
+    startb.innerHTML = "Start";
+    clearInterval(start);
+    min_1 = 0;
+    min_2 = 1;
+    sec_1 = 0;
+    sec_2 = 0;
+  })
   if (min_1.textContent == "0" && min_2.textContent == "0" && sec_1.textContent == "0" && sec_2.textContent == "0") {
     clearInterval(start);
     document.getElementById("start").innerHTML = "Reset";
     document.getElementById("music").play();
+    document.getElementById("start").removeEventListener("click",)
   } else if (sec_2.textContent == "0" && sec_1.textContent != "0") {
     countd_sec_2();
     countd_sec_1();

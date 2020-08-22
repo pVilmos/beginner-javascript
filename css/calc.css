@@ -18,6 +18,9 @@ body {
   padding-bottom: 5%;
   padding-top: 5%;
 }
+.calc h1 {
+  font-size: 3rem;
+}
 
 .machine {
   border-radius: 20px;
