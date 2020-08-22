@@ -14,15 +14,14 @@ body {
   background-color: #fbecec;
   position: relative;
 }
-body::after {
 
-}
 
 .timer {
-  height: 70vh;
+  height: 50vh;
   padding-top: 10%;
   padding-bottom: 10%;
   display: flex;
+  background-color: #fbecec;
   flex-direction: column;
   align-items: center;
   font-size: 2rem;
@@ -30,16 +29,6 @@ body::after {
 
 }
 
-.timer::after{
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
 
 .timer-set span:hover {
   cursor: pointer;

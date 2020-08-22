@@ -1,9 +1,9 @@
 .introduction{
-  height: 30vh;
+  height: 50vh;
 }
 .introduction h1 {
   text-align: center;
-  margin-top: 20%;
+  padding-top: 10%;
   transition: transform 1s;
 }
 #span1 {

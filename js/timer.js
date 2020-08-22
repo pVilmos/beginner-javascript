@@ -9,9 +9,15 @@ min_2.addEventListener("click", change_min_2);
 sec_1.addEventListener("click", change_sec_1);
 sec_2.addEventListener("click", change_sec_2);
 
-document.getElementById("start").addEventListener("click", function(){
-  var start = setInterval(countdown, 1000);
-})
+document.getElementById("start").addEventListener("click", change_timer, {once: true})
+
+function change_timer(){
+  document.getElementById("start").innerHTML = "Wait";
+  var seconds = parseInt(sec_2.textContent) + parseInt(sec_1.textContent) * 10 + parseInt(min_2.textContent) * 60 + parseInt(min_1.textContent) * 600;
+  for (var i = 0; i < seconds + 1; i++) {
+    setTimeout(countdown, i * 1000);
+  }
+}
 
 
 function change_min_1(){
@@ -84,24 +90,25 @@ function countd_sec_2(){
   }
 }
 function countdown() {
-  var startb = document.getElementById("start");
-  startb.removeEventListener("click", function(){
-    var start = setInterval(countdown, 1000);
-  })
-  startb.innerHTML = "Reset";
-  startb.addEventListener("click", function(){
-    startb.innerHTML = "Start";
-    clearInterval(start);
-    min_1 = 0;
-    min_2 = 1;
-    sec_1 = 0;
-    sec_2 = 0;
-  })
-  if (min_1.textContent == "0" && min_2.textContent == "0" && sec_1.textContent == "0" && sec_2.textContent == "0") {
-    clearInterval(start);
+  min_1.removeEventListener("click", change_min_1);
+  min_2.removeEventListener("click", change_min_2);
+  sec_1.removeEventListener("click", change_sec_1);
+  sec_2.removeEventListener("click", change_sec_2);
+    if (min_1.textContent == "0" && min_2.textContent == "0" && sec_1.textContent == "0" && sec_2.textContent == "0") {
     document.getElementById("start").innerHTML = "Reset";
+    document.getElementById("start").addEventListener("click", function(){
+      min_1.innerHTML = "0";
+      min_2.innerHTML = '1';
+      sec_1.innerHTML = "0";
+      sec_2.innerHTML = "0";
+      document.getElementById("start").innerHTML = "Start";
+      document.getElementById("start").addEventListener("click", change_timer, {once: true})
+    }, {once: true})
     document.getElementById("music").play();
-    document.getElementById("start").removeEventListener("click",)
+    min_1.addEventListener("click", change_min_1);
+    min_2.addEventListener("click", change_min_2);
+    sec_1.addEventListener("click", change_sec_1);
+    sec_2.addEventListener("click", change_sec_2);
   } else if (sec_2.textContent == "0" && sec_1.textContent != "0") {
     countd_sec_2();
     countd_sec_1();
@@ -118,4 +125,5 @@ function countdown() {
   else {
     countd_sec_2();
   }
+  console.log("v")
 }
